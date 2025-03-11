@@ -3,9 +3,19 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "starwars-angular": {
+    "starwars-angular-material": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "standalone": false
+        },
+        "@schematics/angular:directive": {
+          "standalone": false
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -13,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/starwars-angular",
+            "outputPath": "dist/starwars-angular-material",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -60,10 +70,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "starwars-angular:build:production"
+              "buildTarget": "starwars-angular-material:build:production"
             },
             "development": {
-              "buildTarget": "starwars-angular:build:development"
+              "buildTarget": "starwars-angular-material:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -96,6 +106,6 @@
     }
   },
   "cli": {
-    "analytics": "a949b335-4041-4062-9f1a-3794971e3fce"
+    "analytics": "57917ffb-050c-4569-8afc-a8cb57f3a11b"
   }
 }

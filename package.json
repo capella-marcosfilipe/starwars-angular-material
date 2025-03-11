@@ -1,5 +1,5 @@
 {
-  "name": "starwars-angular",
+  "name": "starwars-angular-material",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -20,7 +20,7 @@
     "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/router": "^19.2.0",
     "rxjs": "~7.8.0",
-    "starwars-angular": "file:",
+    "starwars-angular-material": "file:",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },
