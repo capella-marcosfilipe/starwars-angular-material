@@ -9,7 +9,12 @@ import { FilmInfo } from '../../services/interfaces';
   styleUrl: './films.component.css',
 })
 export class FilmsComponent {
-  displayedColumns: string[] = ['episode_id', 'title', 'release_date'];
+  displayedColumns: string[] = [
+    'episode_id',
+    'title',
+    'director',
+    'release_date',
+  ];
   filmsList: FilmInfo[] = [];
 
   constructor(private service: SwapiService) {}
