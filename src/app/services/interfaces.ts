@@ -1,4 +1,4 @@
-export interface RespostaAPI {
+export interface ApiRootResponse {
   films: string;
   people: string;
   planets: string;
@@ -7,22 +7,24 @@ export interface RespostaAPI {
   vehicles: string;
 }
 
-export interface Result {
+export interface ApiResponse<T> {
   count: number;
-  results: FilmInfo[] | PeopleInfo[];
+  next: string | null;
+  previous: string | null;
+  results: T[];
 }
 
-export interface Film {
-  title?: string;
-  episode_id?: number;
-  opening_crawl?: string;
-  director?: string;
-  characters?: string[];
-  url?: string;
-}
+// export interface Film {
+//   title?: string;
+//   episode_id?: number;
+//   opening_crawl?: string;
+//   director?: string;
+//   characters?: string[];
+//   url?: string;
+// }
 
 export interface Item {
-  results: FilmInfo[];
+  results: Film[];
 }
 
 export interface PeopleInfo {
@@ -44,7 +46,7 @@ export interface PeopleInfo {
   url: string;
 }
 
-export interface FilmInfo {
+export interface Film {
   title: string;
   episode_id: number;
   opening_crawl: string;
@@ -56,6 +58,27 @@ export interface FilmInfo {
   starships: string[];
   vehicles: string[];
   species: string[];
+  created: Date;
+  edited: Date;
+  url: string;
+}
+
+export interface Starship {
+  name: string;
+  model: string;
+  manufacturer: string;
+  cost_in_credits: string;
+  length: string;
+  max_atmosphering_speed: string;
+  crew: string;
+  passengers: string;
+  cargo_capacity: string;
+  consumables: string;
+  hyperdrive_rating: string;
+  MGLT: string;
+  starship_class: string;
+  pilots: string[];
+  films: string[];
   created: Date;
   edited: Date;
   url: string;

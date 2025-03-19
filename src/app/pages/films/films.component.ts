@@ -1,6 +1,6 @@
+import { ApiResponse, Film } from './../../services/interfaces';
 import { Component } from '@angular/core';
 import { SwapiService } from '../../services/swapi.service';
-import { FilmInfo } from '../../services/interfaces';
 
 @Component({
   selector: 'app-films',
@@ -15,7 +15,7 @@ export class FilmsComponent {
     'director',
     'release_date',
   ];
-  filmsList: FilmInfo[] = [];
+  filmsList: Film[] = [];
   searchTerm: string = '';
 
   constructor(private service: SwapiService) {}
@@ -26,8 +26,10 @@ export class FilmsComponent {
 
   feedFilms(searchQuery: string = ''): void {
     const url = searchQuery ? `films/?search=${searchQuery}` : 'films';
-    this.service.getFilms(url).subscribe((response) => {
-      this.filmsList = response.results;
-    });
+    this.service
+      .fetchData<Film>(url)
+      .subscribe((response: ApiResponse<Film>) => {
+        this.filmsList = response.results;
+      });
   }
 }
