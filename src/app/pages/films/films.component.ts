@@ -9,14 +9,14 @@ import { SwapiService } from '../../services/swapi.service';
   styleUrl: './films.component.css',
 })
 export class FilmsComponent {
-  displayedColumns: string[] = [
+  protected displayedColumns: string[] = [
     'episode_id',
     'title',
     'director',
     'release_date',
   ];
-  filmsList: Film[] = [];
-  searchTerm: string = '';
+  protected filmsList: Film[] = [];
+  protected searchTerm: string = '';
 
   constructor(private service: SwapiService) {}
 
@@ -24,10 +24,9 @@ export class FilmsComponent {
     this.feedFilms();
   }
 
-  feedFilms(searchQuery: string = ''): void {
-    const url = searchQuery ? `films/?search=${searchQuery}` : 'films';
+  protected feedFilms(searchQuery: string = ''): void {
     this.service
-      .fetchData<Film>(url)
+      .list('films', searchQuery)
       .subscribe((response: ApiResponse<Film>) => {
         this.filmsList = response.results;
       });
