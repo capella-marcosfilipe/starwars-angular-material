@@ -24,15 +24,10 @@ export class FilmsComponent {
     this.feedFilms();
   }
 
-  feedFilms(): void {
-    this.service
-      .getFilms('films')
-      .subscribe((filmsList) => (this.filmsList = filmsList.results));
-  }
-
-  get filteredFilms(): FilmInfo[] {
-    return this.filmsList.filter((film) =>
-      film.title.toLowerCase().includes(this.searchTerm.toLowerCase())
-    );
+  feedFilms(searchQuery: string = ''): void {
+    const url = searchQuery ? `films/?search=${searchQuery}` : 'films';
+    this.service.getFilms(url).subscribe((response) => {
+      this.filmsList = response.results;
+    });
   }
 }

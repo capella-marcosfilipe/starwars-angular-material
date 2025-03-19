@@ -3,8 +3,9 @@
   placeholder="Find a movie"
   autofocus
   [(ngModel)]="searchTerm"
+  (keyup)="feedFilms(searchTerm)"
 />
-<table mat-table [dataSource]="filteredFilms" class="mat-elevation-z8">
+<table mat-table [dataSource]="filmsList" class="mat-elevation-z8">
   <!-- Episode ID Column -->
   <ng-container matColumnDef="episode_id">
     <th mat-header-cell *matHeaderCellDef>No.</th>
