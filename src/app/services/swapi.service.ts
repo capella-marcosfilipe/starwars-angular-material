@@ -7,19 +7,22 @@ import { ApiResponse, ApiRootResponse } from './interfaces';
   providedIn: 'root',
 })
 export class SwapiService {
-  api_url = 'https://swapi.dev/api';
+  private api_url = 'https://swapi.dev/api';
   constructor(private http: HttpClient) {}
 
-  fetchData<T>(category: string): Observable<any> {
-    return this.http.get<ApiResponse<T> | ApiRootResponse>(
-      this.api_url + '/' + category
-    );
-  }
+  list<T>(category: string, search?: string, page?: number): Observable<any> {
+    let params = new HttpParams();
 
-  search<T>(category: string, value: string): Observable<any> {
-    let params = new HttpParams().set('search', value);
-    return this.http.get<ApiResponse<T>>(`${this.api_url}/${category}/`, {
-      params,
-    });
+    if (page) {
+      params = params.set('page', page);
+    }
+    if (search && search.trim().length > 2) {
+      params = params.set('search', search);
+    }
+
+    return this.http.get<ApiResponse<T> | ApiRootResponse>(
+      `${this.api_url}/${category}/`,
+      { params }
+    );
   }
 }
