@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { FilmsComponent } from './pages/films/films.component';
-import { SpacecraftComponent } from './pages/spacecraft/spacecraft.component';
+import { StarshipsComponent } from './pages/starships/starships.component';
 
 const routes: Routes = [
   {
@@ -19,8 +19,8 @@ const routes: Routes = [
     component: FilmsComponent,
   },
   {
-    path: 'spacecraft',
-    component: SpacecraftComponent,
+    path: 'starships',
+    component: StarshipsComponent,
   },
 ];
 
