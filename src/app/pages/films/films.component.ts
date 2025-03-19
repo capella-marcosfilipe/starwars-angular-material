@@ -16,7 +16,6 @@ export class FilmsComponent {
     'release_date',
   ];
   filmsList: FilmInfo[] = [];
-  filteredFilmsList: FilmInfo[] = [];
   searchTerm: string = '';
 
   constructor(private service: SwapiService) {}
