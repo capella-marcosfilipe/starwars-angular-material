@@ -1,10 +1,13 @@
-<input
-  type="search"
-  autofocus
-  placeholder="Find a startship"
-  [(ngModel)]="searchTerm"
-  (keyup)="feedStarships(searchTerm)"
-/>
+<mat-form-field>
+  <input
+    matInput
+    placeholder="Find a starship"
+    autofocus
+    [(ngModel)]="searchTerm"
+    (keyup)="feedStarships(searchTerm)"
+    type="search"
+  />
+</mat-form-field>
 <table mat-table [dataSource]="starshipsList" class="mat-elevation-z8">
   <!-- Name Column -->
   <ng-container matColumnDef="name">
