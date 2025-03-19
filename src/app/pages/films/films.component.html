@@ -1,4 +1,10 @@
-<table mat-table [dataSource]="filmsList" class="mat-elevation-z8">
+<input
+  type="search"
+  placeholder="Find a movie"
+  autofocus
+  [(ngModel)]="searchTerm"
+/>
+<table mat-table [dataSource]="filteredFilms" class="mat-elevation-z8">
   <!-- Episode ID Column -->
   <ng-container matColumnDef="episode_id">
     <th mat-header-cell *matHeaderCellDef>No.</th>

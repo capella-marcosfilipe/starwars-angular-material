@@ -9,6 +9,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { FilmsComponent } from './pages/films/films.component';
 
 import { MatTableModule } from '@angular/material/table';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { MatTableModule } from '@angular/material/table';
     HomeComponent,
     FilmsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, MatTableModule],
+  imports: [BrowserModule, AppRoutingModule, MatTableModule, FormsModule],
   providers: [provideHttpClient(withFetch())],
   bootstrap: [AppComponent],
 })

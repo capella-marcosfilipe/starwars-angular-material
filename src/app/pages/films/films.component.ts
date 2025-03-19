@@ -16,6 +16,8 @@ export class FilmsComponent {
     'release_date',
   ];
   filmsList: FilmInfo[] = [];
+  filteredFilmsList: FilmInfo[] = [];
+  searchTerm: string = '';
 
   constructor(private service: SwapiService) {}
 
@@ -27,5 +29,11 @@ export class FilmsComponent {
     this.service
       .getFilms('films')
       .subscribe((filmsList) => (this.filmsList = filmsList.results));
+  }
+
+  get filteredFilms(): FilmInfo[] {
+    return this.filmsList.filter((film) =>
+      film.title.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
   }
 }
