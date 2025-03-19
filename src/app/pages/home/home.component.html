@@ -1,3 +1,38 @@
-<section class="home">
-  <h1 class="text-3xl font-bold">Star Wars API</h1>
+<section
+  class="home bg-gradient-to-b from-gray-900 to-black h-screen p-6 flex flex-col items-center justify-between text-center"
+>
+  <div class="space-y-6 flex flex-col justify-center items-center flex-grow">
+    <h1 class="text-6xl font-extrabold text-indigo-400 drop-shadow-lg">
+      Star Wars API
+    </h1>
+    <p class="text-lg text-gray-400">
+      Explore data from a galaxy far, far away...
+    </p>
+    <div class="flex space-x-6">
+      <a
+        [routerLink]="['/starships']"
+        class="px-6 py-3 text-lg font-semibold text-black bg-yellow-400 rounded-lg shadow-lg hover:bg-yellow-300 transition"
+        >Starships</a
+      >
+      <a
+        [routerLink]="['/films']"
+        class="px-6 py-3 text-lg font-semibold text-black bg-blue-500 rounded-lg shadow-lg hover:bg-blue-400 transition"
+        >Films</a
+      >
+    </div>
+  </div>
+
+  <footer
+    class="w-full mt-auto bg-slate-900 text-center text-sm text-slate-400 py-4"
+  >
+    <p>
+      &copy; 2025 Star Wars API | Designed by
+      <a
+        href="https://marcoscapella.com.br"
+        class="text-white hover:text-gray-300"
+        >Marcos Capella</a
+      >
+      with Angular 19 and TailwindCSS.
+    </p>
+  </footer>
 </section>
