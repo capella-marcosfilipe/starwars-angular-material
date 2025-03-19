@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SwapiService } from '../../services/swapi.service';
 import { ApiResponse, Starship } from '../../services/interfaces';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-starships',
@@ -45,7 +46,7 @@ export class StarshipsComponent {
       );
   }
 
-  protected loadMoreResults(event: any) {
+  protected loadMoreResults(event: PageEvent) {
     // the API counts pages from 1. So we take the pageIndex of the event and add 1 every time it's called.
     const apiPage = event.pageIndex + 1;
     this.pageIndex = event.pageIndex; // Keep MatPaginator in sync
