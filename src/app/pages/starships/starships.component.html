@@ -33,3 +33,11 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
+<mat-paginator
+  #paginator
+  [length]="starshipCount"
+  [pageSize]="10"
+  [pageIndex]="pageIndex"
+  (page)="loadMoreResults($event)"
+  [showFirstLastButtons]="true"
+></mat-paginator>

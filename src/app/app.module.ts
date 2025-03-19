@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { HomeComponent } from './pages/home/home.component';
 import { FilmsComponent } from './pages/films/films.component';
-
-import { MatTableModule } from '@angular/material/table';
-import { FormsModule } from '@angular/forms';
 import { StarshipsComponent } from './pages/starships/starships.component';
+
+import { FormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,13 @@ import { StarshipsComponent } from './pages/starships/starships.component';
     FilmsComponent,
     StarshipsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, MatTableModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    MatTableModule,
+    MatPaginatorModule,
+  ],
   providers: [provideHttpClient(withFetch())],
   bootstrap: [AppComponent],
 })
