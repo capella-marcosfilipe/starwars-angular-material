@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { SwapiService } from '../../services/swapi.service';
 import { ApiResponse, Starship } from '../../services/interfaces';
 import { PageEvent } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { StarshipInfoComponent } from './starship-info/starship-info.component';
 
 @Component({
   selector: 'app-starships',
@@ -21,7 +23,7 @@ export class StarshipsComponent {
   protected starshipCount: number = 0;
   protected pageIndex: number = 0;
 
-  constructor(private service: SwapiService) {}
+  constructor(private service: SwapiService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.feedStarships();
@@ -57,5 +59,12 @@ export class StarshipsComponent {
         (response: ApiResponse<Starship>) =>
           (this.starshipsList = response.results)
       );
+  }
+
+  protected selectedRow(starship: Starship) {
+    this.dialog.open(StarshipInfoComponent, {
+      width: '400px',
+      data: starship,
+    });
   }
 }

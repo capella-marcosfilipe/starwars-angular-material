@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>{{ starship.name }}</h2>
+<mat-dialog-content>
+  <p><strong>Model:</strong> {{ starship.model }}</p>
+  <p><strong>Manufacturer:</strong> {{ starship.manufacturer }}</p>
+  <p><strong>Passengers:</strong> {{ starship.passengers }}</p>
+  <p><strong>Cargo capacity:</strong> {{ starship.cargo_capacity }}</p>
+  <p><strong>Consumables:</strong> {{ starship.consumables }}</p>
+  <p><strong>Cost in credits:</strong> {{ starship.cost_in_credits }}</p>
+  <p>
+    <strong>Max atmosphering speed:</strong>
+    {{ starship.max_atmosphering_speed }}
+  </p>
+  <p><strong>As featured in:</strong></p>
+  <ul>
+    <li *ngFor="let film of filmNames">{{ film }}</li>
+  </ul>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="closeDialog()">Close</button>
+</mat-dialog-actions>

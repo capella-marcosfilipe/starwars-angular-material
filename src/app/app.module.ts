@@ -13,6 +13,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { StarshipInfoComponent } from './pages/starships/starship-info/starship-info.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     HomeComponent,
     FilmsComponent,
     StarshipsComponent,
+    StarshipInfoComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +33,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
+    MatButtonModule,
+    MatDialogModule,
   ],
   providers: [provideHttpClient(withFetch())],
   bootstrap: [AppComponent],

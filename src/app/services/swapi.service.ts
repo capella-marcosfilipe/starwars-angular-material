@@ -25,4 +25,9 @@ export class SwapiService {
       { params }
     );
   }
+
+  getFilm(url: string): Observable<{ title: string }> {
+    // To be used in startship-info component for displaying featured films.
+    return this.http.get<{ title: string }>(url);
+  }
 }
