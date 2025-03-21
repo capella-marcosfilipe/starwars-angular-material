@@ -60,6 +60,7 @@
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr
+      class="cursor-pointer"
       (click)="selectedRow(starship)"
       mat-row
       *matRowDef="let starship; columns: displayedColumns"
